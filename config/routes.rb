@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   
-	root 'index#show'
+	root 'items#index'
   
   resources :items
   get 'items/index'

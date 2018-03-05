@@ -8,7 +8,7 @@
 
 
 
-10.times do |img|
+20.times do |img|
 
 Item.create(
 	title: "picture_#{img}",

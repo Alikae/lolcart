@@ -1,15 +1,15 @@
 class ProductController < ApplicationController
       def index
-        @product = Product.all
+        @item = Item.all
       end
 
       def new
-        @post = Post.new
+        @item = Item.new
       end
 
       def create
-        @product = Product.new params[:post]
-        if @product.save
+        @pitem = Item.new params[:post]
+        if @item.save
           redirect_to product_path
         else
           render :action => 'new'
@@ -17,21 +17,21 @@ class ProductController < ApplicationController
     end
 
     def edit
-      @product = Product.find params[:id]
+      @item = Item.find params[:id]
     end
 
     def update
-        @article = Article.find params[:id]
-        if @article.update_attributes params[:article]
+        @item = Item.find params[:id]
+        if @item.update_attributes params[:article]
           redirect_to posts_path
         end
     def show
-      @article = Article.find params[:id]
+      @item = Item.find params[:id]
     end
 
     def destroy
-      @article = Article.find params[:id]
-      @article.destroy
+      @item = Item.find params[:id]
+      @item.destroy
       redirect_to articles_path
     end
     end

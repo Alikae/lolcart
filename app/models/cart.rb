@@ -1,6 +1,4 @@
 class Cart < ApplicationRecord
   belongs_to :user
-  has_many :items
-#a=User.create(email:"tral@la.com, password:"azerty")
-#a.cart = Cart.create
+  has_and_belongs_to_many :items
 end

@@ -7,3 +7,10 @@ body {
     padding-top: 56px;
   }
 }
+
+
+/* Buttons */
+
+.btn-index a:hover {
+	color:white;
+}

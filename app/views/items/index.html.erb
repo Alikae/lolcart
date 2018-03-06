@@ -47,15 +47,16 @@
  
          	<div class="row">
 
-            <div class="col-lg-4 col-md-6 mb-4">
+         		<% Item.all.order('created_at DESC').take(9).each do |img| %>
+
+         	  <div class="col-lg-4 col-md-6 mb-4">
               <div class="card h-100">
-                <a href="/items/1"><%= image_tag("img1.jpg",  size:"200x77", alt:"image 1", class:"card-img-top") %></a>
+                <%= link_to image_tag(img.image_url,  size:"200x77", alt:'image '+img.id.to_s, class:'card-img-top'), item_path(img.id) %>
                 <div class="card-body">
                   <h4 class="card-title">
-                    <a href="/items/1">Item One</a>
+                    <%= link_to 'Voir', item_path(img.id) %>
                   </h4>
-                  <h5>$9.9</h5>
-                  <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur!</p>
+                  <h5><%= img.price %>€</h5>
                 </div>
                 <div class="card-footer">
                   <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
@@ -63,39 +64,8 @@
               </div>
             </div>
 
+            <% end %>
 
-             <div class="col-lg-4 col-md-6 mb-4">
-              <div class="card h-100">
-                <a href="/items/2"><%= image_tag("img2.jpg",  size:"200x77", alt:"image 2", class:"card-img-top") %></a>
-                <div class="card-body">
-                  <h4 class="card-title">
-                    <a href="/items/2">Item Two</a>
-                  </h4>
-                  <h5>$9.9</h5>
-                  <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur!</p>
-                </div>
-                <div class="card-footer">
-                  <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
-                </div>
-              </div>
-            </div>
-
-
-            <div class="col-lg-4 col-md-6 mb-4">
-              <div class="card h-100">
-                <a href="/items/3"><%= image_tag("img3.jpg",  size:"200x77", alt:"image 3", class:"card-img-top") %></a>
-                <div class="card-body">
-                  <h4 class="card-title">
-                    <a href="/items/3">Item Three</a>
-                  </h4>
-                  <h5>$9.9</h5>
-                  <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur!</p>
-                </div>
-                <div class="card-footer">
-                  <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
-                </div>
-              </div>
-            </div>
 
           </div>
           <!-- /.row -->

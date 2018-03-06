@@ -32,4 +32,9 @@ body {
   height: auto;
   margin-bottom: 15px;
   padding: 7px 9px;
+
+/* Buttons */
+
+.btn-index a:hover {
+	color:white;
 }

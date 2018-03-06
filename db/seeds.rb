@@ -16,7 +16,7 @@ Item.create(
 	title: "picture_#{img+1}",
 	description: "lovely picture, ain't it ?",
 	price: 9.9,
-	image_url: "img#{img+1}"
+	image_url: "img#{img+1}.jpg"
 	)
 
 end

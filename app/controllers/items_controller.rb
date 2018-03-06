@@ -8,4 +8,15 @@ class ItemsController < ApplicationController
   	@item = Item.find(params[:id])
   end
 
+  def new
+    @item = Item.new
+  end
+  def create
+    @item = Item.new params[:post]
+    if @item.save
+      redirect_to items_path
+    else
+      render :action => 'new'
+  end
+  end
 end

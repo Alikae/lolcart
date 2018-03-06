@@ -20,3 +20,14 @@ Item.create(
 	)
 
 end
+
+
+5.times do |x|
+
+User.create(
+	id: (x+1),
+	email: "u#{x+1}@mail.com",
+	password: "azerty"
+	)
+
+end

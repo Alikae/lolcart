@@ -1,8 +1,11 @@
 Rails.application.routes.draw do
-  
+
+
+
 	root 'items#index'
-  
+
   resources :items
+  resources :cart
   get 'items/index'
   get 'items/show'
 

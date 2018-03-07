@@ -5,19 +5,19 @@
 <div class="row">
 	<table class="table-responsive table-hover m-3">
 		<tr>
-			<th class="col-lg-2">Visuel</th>
-			<th class="col-lg-2">Titre</th>
-			<th class="col-lg-2">Prix unitaire</th>
-			<th class="col-lg-2">Options</th>
+			<th class="col-lg-2 text-center">Visuel</th>
+			<th class="col-lg-2 text-center">Titre</th>
+			<th class="col-lg-2 text-center">Prix unitaire</th>
+			<th class="col-lg-2 text-center">Options</th>
 		</tr>
 
 	<% @cart.items.each do |item| %>
 
 		<tr>
-			<td><%= image_tag(item.image_url, size:"100x35", alt:'product'+item.id.to_s, class:'card-img-top')%></td>
-			<td><%= item.title %></td>
-			<td><%= item.price %>€</td>
-	    <td><%= link_to "Enlever l'article", remove_item_path(item.id), :method => "delete", class:"btn-sm btn-danger", :data => {:confirm => "Sûr?",
+			<td class="text-center"><%= image_tag(item.image_url, height: '100', alt:'product'+item.id.to_s, class:'img-responsive')%></td>
+			<td class="text-center"><%= item.title %></td>
+			<td class="text-center"><%= item.price %>€</td>
+	    <td class="text-center"><%= link_to "Enlever l'article", remove_item_path(item.id), :method => "delete", class:"btn-sm btn-danger", :data => {:confirm => "Sûr?",
 	              } %></td>
 		</tr>
 
@@ -25,8 +25,8 @@
 
 	  <tr>
 	    <td colspan="2"></td>
-	    <td></td>
-	    <td><a class="btn btn-primary">Payer</a></td>
+	    <td class="text-primary text-center">Total <p class="font-weight-bold"><%= compute_total %> €</p></td>
+	    <td class="text-center"><a class="btn btn-primary">Payer</a></td>
 	  </tr>
 
 

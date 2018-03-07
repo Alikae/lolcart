@@ -1,0 +1,30 @@
+
+<h1>Commandes</h1>
+
+
+  <div class="well">
+  <div class="row">
+  	<table class="table-responsive table-hover m-3">
+  		<tr>
+  			<th class="col-lg-2 text-center">Date</th>
+  			<th class="col-lg-2 text-center">Total</th>
+  			<th class="col-lg-2 text-center">Nombre d'items</th>
+  			<th class="col-lg-2 text-center">Statut</th>
+  			<th class="col-lg-2 text-center">Payé ?</th>
+  		</tr>
+
+      <% @orders.each do |order| %>
+
+  		<tr>
+  			<td class="text-center"><%= order.created_at %></td>
+        <td class="text-center"><%= order.total %></td>
+  			<td class="text-center"><%= order.items.length %></td>
+  			<td class="text-center"><%= order.status %></td>
+  	    <td class="text-center">Mettre ici le form_tag</td>
+  		</tr>
+
+  	<% end %>
+
+  	</table>
+  </div>
+  </div>

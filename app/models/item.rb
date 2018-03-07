@@ -4,4 +4,6 @@ class Item < ApplicationRecord
     validates :title, :description, :price, :image_url, presence: true
     validates :description, length: { maximum: 140 }
 
+    default_scope {where(active: true)}
+
 end

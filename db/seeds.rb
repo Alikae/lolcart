@@ -20,3 +20,9 @@ Item.create(
 	)
 
 end
+
+OrderStatus.delete_all
+OrderStatus.create! id: 2, name:"In progress"
+OrderStatus.create! id: 2, name:"Placed"
+OrderStatus.create! id: 3, name:"shipped"
+OrderStatus.create! id: 4, name:"cancelled"

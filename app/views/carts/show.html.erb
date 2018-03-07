@@ -17,8 +17,8 @@
 			<td><%= image_tag(item.image_url, size:"100x35", alt:'product'+item.id.to_s, class:'card-img-top')%></td>
 			<td><%= item.title %></td>
 			<td><%= item.price %>€</td>
-	    <td><%= link_to "Enlever l'article", item_path(item.id), class:"btn-sm btn-danger", :data => {:confirm => "Sûr?",
-	              :method => "delete"} %></td>
+	    <td><%= link_to "Enlever l'article", remove_item_path(item.id), :method => "delete", class:"btn-sm btn-danger", :data => {:confirm => "Sûr?",
+	              } %></td>
 		</tr>
 
 	<% end %>

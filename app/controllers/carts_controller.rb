@@ -1,10 +1,16 @@
 class CartsController < ApplicationController
-  before_action :set_cart, only: [:show, :edit, :update, :destroy, :add_item]
+  before_action :set_cart, only: [:show, :edit, :update, :destroy, :add_item, :remove_item]
 
 
   def add_item
     @cart.items << Item.find(params[:id])
-     flash[:success] = "Objet ajouté"
+    redirect_to cart_path, :flash => { :success => "ˁ˚ᴥ˚ˀ lol, ton chaton est ajouté ! ˁ˚ᴥ˚ˀ" }
+  end
+
+  def remove_item
+    @item = Item.find(params[:id])
+    @cart.items.delete(@item)
+    redirect_to cart_path, :flash => { :danger => "ˁ˚ᴥ˚ˀ , omg, ton chaton est supprimé ! ˁ˚ᴥ˚ˀ" }
   end
 
   def show

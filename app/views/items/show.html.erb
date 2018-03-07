@@ -20,7 +20,11 @@
       <div class="card mt-4">
       <div class="btn-group-vertical">
         <%= link_to "Retour au catalogue", root_path, class:"btn btn-outline-primary" %>
-        <%= link_to "Acheter", root_path, class:"btn btn-success" %>
+        <% if user_signed_in? %>
+          <%= link_to "Ajouter au panier", root_path, class:"btn btn-success" %>
+        <% else %>
+          <%= link_to "Acheter", new_user_registration_path, class:"btn btn-success" %>
+        <% end %>
       </div>
       </div>
 

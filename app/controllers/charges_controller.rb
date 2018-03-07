@@ -1,5 +1,5 @@
 class ChargesController < ApplicationController
-before_action :amount_to_be_charged,  :set_description,  :authenticate_user!
+before_action   :set_description,  :authenticate_user!
     
     def  thanks
     end
@@ -17,7 +17,7 @@ before_action :amount_to_be_charged,  :set_description,  :authenticate_user!
     amount: @amount,
     description: @description)
     
-    redirect_to thanks_path
+  
     rescue  Stripe::CardError  => e
     flash[:error]  =  e.message
     redirect_to new_charge_path
@@ -30,7 +30,7 @@ before_action :amount_to_be_charged,  :set_description,  :authenticate_user!
       
     
     def  amount_to_be_charged
-    @amount  =  current_user.cart.compute_total
+    @amount  =  order.compute_total
     end
     
       

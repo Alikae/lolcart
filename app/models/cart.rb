@@ -4,10 +4,4 @@ class Cart < ApplicationRecord
 end
 
 
-def compute_total
-  total = 0
-  @cart.items.each do |i|
-    total += i.price
-  end
-  return total
-end
+

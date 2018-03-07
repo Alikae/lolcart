@@ -30,7 +30,7 @@
 					</div>
 					<% end %>
 						<label class="amount">
-							<span><%= current_user.cart.compute_total%></span>
+							<span><%= order.compute_total(order) %></span>
 						</label>
 			</article>
 		

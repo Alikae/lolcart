@@ -7,7 +7,7 @@
 
           <h1 class="my-4">LOL Carts</h1>
           <div class="list-group">
-            <a href="#" class="list-group-item">Mon panier</a>
+            <%= link_to "Mon panier", cart_path(current_user.cart.id), class:"list-group-item" %>
             <a href="#" class="list-group-item">Trending lolcats</a>
           </div>
 
@@ -47,7 +47,7 @@
 
          	<div class="row">
 
-         		<% Item.all.order('created_at DESC').take(9).each do |img| %>
+         		<% Item.all.order('created_at DESC').take(20).each do |img| %>
 
          	  <div class="col-lg-4 col-md-6 mb-4">
               <div class="card h-100">

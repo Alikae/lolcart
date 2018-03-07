@@ -21,7 +21,7 @@
       <div class="btn-group-vertical">
         <%= link_to "Retour au catalogue", root_path, class:"btn btn-outline-primary" %>
         <% if user_signed_in? %>
-          <%= link_to "Ajouter au panier", add_item_path, :method => "post", :data => @item.id, class:"btn btn-success" %>
+          <%= link_to "Ajouter au panier", add_item_path(@item.id), :method => "post", class:"btn btn-success" %>
         <% else %>
           <%= link_to "Acheter", new_user_registration_path, class:"btn btn-success" %>
         <% end %>

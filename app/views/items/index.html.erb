@@ -7,7 +7,9 @@
 
           <h1 class="my-4">LOL Carts</h1>
           <div class="list-group">
-            <%= link_to "Mon panier", cart_path(current_user.cart.id), class:"list-group-item" %>
+            <% if current_user != nil %>
+              <%= link_to "Mon panier", cart_path(current_user.cart.id), class:"list-group-item" %>
+            <% end %>
             <a href="#" class="list-group-item">Trending lolcats</a>
           </div>
 

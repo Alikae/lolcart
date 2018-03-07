@@ -20,12 +20,7 @@
         <td class="text-center"><%= order.total %></td>
   			<td class="text-center"><%= order.items.length %></td>
   			<td class="text-center"><%= order.status %></td>
-  	    <td class="text-center">Mettre ici le form_tag</td>
-  		</tr>
-
-		<% end %>
-		
-		<%= form_tag charges_path do %>
+  	    <td class="text-center"><%= form_tag charges_path do %>
 			<article>
 				<% if flash[:error].present? %>
 					<div id="error_explanation">
@@ -44,7 +39,13 @@
               data-description="@description"
               data-amount="@amount"
               data-locale="auto"></script>
-    <% end %>
+		<% end %>
+	</td>
+  		</tr>
+
+		<% end %>
+		
+		
 
   	</table>
   </div>

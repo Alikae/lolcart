@@ -8,7 +8,10 @@ Rails.application.routes.draw do
   resources :charges, only: [:new, :create]
   resources :items
   resources :carts
+  get 'orders/index' => 'orders#index'
+  get 'orders/new' => 'orders#create'
   post 'items/show/:id', to: 'carts#add_item', as: :add_item
+	post 'root/:id', to: 'carts#add_item', as: :add_item_from_index
   delete 'carts/show/:id', to: 'carts#remove_item', as: :remove_item
   get 'items/index'
   get 'items/show'

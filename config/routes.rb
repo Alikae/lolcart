@@ -2,8 +2,10 @@ Rails.application.routes.draw do
 
 
 
-	root 'items#index'
+  
 
+	root 'items#index'
+  resources :charges, only: [:new, :create]
   resources :items
   resources :carts
   post 'items/show/:id', to: 'carts#add_item', as: :add_item

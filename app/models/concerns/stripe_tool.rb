@@ -11,7 +11,7 @@
           customer: customer_id,
           amount: amount,
           description: description,
-          currency: 'usd'
+          currency: 'eur'
         )
       end
     end

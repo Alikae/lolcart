@@ -23,7 +23,28 @@
   	    <td class="text-center">Mettre ici le form_tag</td>
   		</tr>
 
-  	<% end %>
+		<% end %>
+		
+		<%= form_tag charges_path do %>
+			<article>
+				<% if flash[:error].present? %>
+					<div id="error_explanation">
+						<p>
+							<%= flash[:error] %>
+						</p>
+					</div>
+					<% end %>
+						<label class="amount">
+							<span><%= current_user.cart.compute_total%></span>
+						</label>
+			</article>
+		
+			<script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+              data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+              data-description="@description"
+              data-amount="@amount"
+              data-locale="auto"></script>
+    <% end %>
 
   	</table>
   </div>

@@ -1,0 +1,35 @@
+<h1>Panier</h1>
+
+
+<div class="well">
+<div class="row">
+	<table class="table-responsive table-hover m-3">
+		<tr>
+			<th class="col-lg-2">Visuel</th>
+			<th class="col-lg-2">Titre</th>
+			<th class="col-lg-2">Prix unitaire</th>
+			<th class="col-lg-2">Options</th>
+		</tr>
+
+	<% @cart.items.each do |item| %>
+
+		<tr>
+			<td><%= image_tag(item.image_url, size:"100x35", alt:'product'+item.id.to_s, class:'card-img-top')%></td>
+			<td><%= item.title %></td>
+			<td><%= item.price %>€</td>
+	    <td><%= link_to "Enlever l'article", remove_item_path(item.id), :method => "delete", class:"btn-sm btn-danger", :data => {:confirm => "Sûr?",
+	              } %></td>
+		</tr>
+
+	<% end %>
+
+	  <tr>
+	    <td colspan="2"></td>
+	    <td></td>
+	    <td><a class="btn btn-primary">Payer</a></td>
+	  </tr>
+
+
+	</table>
+</div>
+</div>

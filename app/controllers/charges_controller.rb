@@ -30,7 +30,7 @@ before_action :amount_to_be_charged,  :set_description,  :authenticate_user!
       
     
     def  amount_to_be_charged
-    @amount  =  500
+    @amount  =  current_user.cart.compute_total
     end
     
       

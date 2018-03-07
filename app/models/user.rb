@@ -1,8 +1,10 @@
 class User < ApplicationRecord
-  has_one :cart
+  has_one :cart, dependent: :destroy
   has_many :items, through: :cart
-
   has_many :orders
+
+  after_create :create_cart
+
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
@@ -10,8 +12,8 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
 
 
-  def after_create
-    
+  def create_cart
+    Cart.create(user_id:self.id)
   end
 
 end

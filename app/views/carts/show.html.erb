@@ -1,30 +1,35 @@
 <h1>Panier</h1>
 
-<table>
-	<tr>
-		<th>Visuel</th>
-		<th>Titre</th>
-		<th>Prix unitaire</th>
-		<th>Options</th>
-	</tr>
 
-<% @cart.items.each do |item| %>
+<div class="well">
+<div class="row">
+	<table class="table-responsive table-hover m-3">
+		<tr>
+			<th class="col-lg-2">Visuel</th>
+			<th class="col-lg-2">Titre</th>
+			<th class="col-lg-2">Prix unitaire</th>
+			<th class="col-lg-2">Options</th>
+		</tr>
 
-	<tr>
-		<td><%= image_tag(item.image_url, size:"100x35", alt:'product'+item.id.to_s, class:'card-img-top')%></td>
-		<td><%= item.title %></td>
-		<td><%= item.price %>€</td>
-    <td><%= link_to "Enlever l'article", item_path(item.id), class:"btn btn-danger", :data => {:confirm => "Sûr?",
-              :method => "delete"} %>€</td>
-	</tr>
+	<% @cart.items.each do |item| %>
 
-<% end %>
+		<tr>
+			<td><%= image_tag(item.image_url, size:"100x35", alt:'product'+item.id.to_s, class:'card-img-top')%></td>
+			<td><%= item.title %></td>
+			<td><%= item.price %>€</td>
+	    <td><%= link_to "Enlever l'article", item_path(item.id), class:"btn-sm btn-danger", :data => {:confirm => "Sûr?",
+	              :method => "delete"} %></td>
+		</tr>
 
-  <tr>
-    <td colspan="2"></td>
-    <td></td>
-    <td><a>"Payer"</a></td>
-  </tr>
+	<% end %>
+
+	  <tr>
+	    <td colspan="2"></td>
+	    <td></td>
+	    <td><a class="btn btn-primary">Payer</a></td>
+	  </tr>
 
 
-</table>
+	</table>
+</div>
+</div>

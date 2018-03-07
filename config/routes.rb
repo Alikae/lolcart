@@ -6,6 +6,7 @@ Rails.application.routes.draw do
 
   resources :items
   resources :carts
+  post 'items/show/:id', to: 'carts#add_item', as: :add_item
   get 'items/index'
   get 'items/show'
 

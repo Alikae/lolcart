@@ -1,29 +1,20 @@
 class CartsController < ApplicationController
-  before_action :set_cart, only: [:show, :edit, :update, :destroy]
+  before_action :set_cart, only: [:show, :edit, :update, :destroy, :add_item]
 
-  def new
-    @cart = Cart.new
-  end
 
-  def create
-    @cart = Cart.create(cart_params)
-  end
-
-  def add_item(item_id)
-    @cart = current_user.cart
-    @cart << Item.find(item_id)
+  def add_item
+    @cart.items << Item.find(params[:id])
+     flash[:success] = "Objet ajouté"
   end
 
   def show
   end
 
-  def edit
-  end
 
   private
 
   def set_cart
-    @cart = Cart.find(params[:id])
+    @cart = current_user.cart
   end
 
   def cart_params

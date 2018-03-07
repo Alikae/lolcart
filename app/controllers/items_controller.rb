@@ -11,6 +11,7 @@ class ItemsController < ApplicationController
   def new
     @item = Item.new
   end
+
   def create
     @item = Item.new(params[:item])
     if @item.save
@@ -18,5 +19,6 @@ class ItemsController < ApplicationController
     else
       render :action => 'new'
   end
+
   end
 end

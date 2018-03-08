@@ -4,6 +4,8 @@ Rails.application.routes.draw do
 
   
 
+  get 'profiles/show'
+
 	root 'items#index'
   resources :charges, only: [:new, :create]
   resources :items

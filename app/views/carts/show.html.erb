@@ -17,7 +17,7 @@
 			<td class="text-center"><%= image_tag(item.image_url, height: '100', alt:'product'+item.id.to_s, class:'img-responsive')%></td>
 			<td class="text-center"><%= item.title %></td>
 			<td class="text-center"><%= item.price %>€</td>
-	    <td class="text-center"><%= link_to "Enlever l'article", remove_item_path(item.id), :method => "delete", class:"btn-sm btn-danger", :data => {:confirm => "Sûr?",
+	    <td class="text-center"><%= link_to "Enlever l'article", remove_item_path(item.id), remote:true, :method => "delete", class:"btn-sm btn-danger", :data => {:confirm => "Sûr?",
 	              } %></td>
 		</tr>
 

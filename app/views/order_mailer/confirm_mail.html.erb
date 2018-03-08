@@ -2,6 +2,6 @@
 
 <p>Youpi !, voici tes jolis chatons<p>
 
-Ta commande du <%= @user.cart.created_at %> a été enregistrée.
-Elle comporte <%= @user.cart.items.size %> photos.
+Ta commande du <%= @user.orders.last.created_at %> a été enregistrée.
+Elle comporte <%= @user.orders.last.items.size %> photos.
 Trop cool !

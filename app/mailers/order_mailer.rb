@@ -1,10 +1,9 @@
 class OrderMailer < ApplicationMailer
 
-  def confirm_mail(user)
+  def confirm_mail(user, order)
     @user = user
-    file_path = 'app/assets/images/'+@user.cart.items.first.image_url
-    for i in (1..@user.items.size) do
-      attachments[@user.items[i-1].image_url] = File.read('app/assets/images/'+@user.items[i-1].image_url)
+    for i in (1..@user.orders.last.items.size) do
+      attachments[@user.orders.last.items[i-1].image_url] = File.read('app/assets/images/'+@user.orders.last.items[i-1].image_url)
     end
 
     mail(

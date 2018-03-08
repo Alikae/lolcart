@@ -13,5 +13,19 @@ class OrderMailer < ApplicationMailer
     )
   end
 
+
+  def confirm_mail_admin(user, order)
+    @user = user
+    @order = order
+    @order_price = 0
+    @order.items.each do |s| @order_price+=s[:price] end
+
+    mail(
+      from: "chatonstrognons@gmail.com",
+      to: "adminchatons@yopmail.com",
+      subject: "ça y est vous êtes encore plus riche"
+    )
+  end
+
 end
 #    delivery_method_options: { api_key: ENV['MAILJETAPIKEY'], secret_key: ENV['MAILJETSECRETKEY'] }

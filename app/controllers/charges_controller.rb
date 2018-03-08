@@ -20,6 +20,7 @@ before_action   :set_description,  :authenticate_user!, :set_order
     description: @description)
     if charge["paid"] == true
       OrderMailer.confirm_mail(current_user, @order).deliver_now!
+      OrderMailer.confirm_mail_admin(current_user, @order).deliver_now!
        #set order_status to paid
     end
 

@@ -5,7 +5,7 @@ class CartsController < ApplicationController
   def add_item
     @item = Item.find(params[:id])
     if @cart.items.include?(@item)
-      redirect_to items_path(@item), :flash => { :alert => "ˁ˚ᴥ˚ˀ wtf, ton chaton est déjà dans le panier ! ˁ˚ᴥ˚ˀ" }
+      redirect_to items_path(@item), :flash => { :danger => "ˁ˚ᴥ˚ˀ wtf, ton chaton est déjà dans le panier ! ˁ˚ᴥ˚ˀ" }
     else
       @cart.items << @item
       redirect_to items_path(@item), :flash => { :success => "ˁ˚ᴥ˚ˀ lol, ton chaton est ajouté ! ˁ˚ᴥ˚ˀ" }

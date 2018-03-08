@@ -8,7 +8,7 @@ class OrdersController < ApplicationController
     @order.items = current_user.cart.items
     current_user.cart.items.clear
     redirect_to orders_index_path
-    OrderMailer.confirm_mail(@user).deliver_now!
+    
 
   end
 

@@ -1,8 +1,13 @@
 Rails.application.routes.draw do
 
 
-  root 'items#index'
 
+  
+
+  get 'profiles/show'
+
+	root 'items#index'
+  resources :charges, only: [:new, :create]
   resources :items
   resources :carts
   get 'orders/index' => 'orders#index'

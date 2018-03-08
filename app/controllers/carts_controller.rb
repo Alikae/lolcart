@@ -19,6 +19,10 @@ class CartsController < ApplicationController
   end
 
   def show
+    @total=0
+    current_user.cart.items.each do |item|
+      @total+=item.price
+    end
   end
 
 

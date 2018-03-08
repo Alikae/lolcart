@@ -59,7 +59,9 @@
                     <%= link_to 'Voir', item_path(img.id) %>
                   </h5>
                   <h5><%= img.price %>€</h5>
+                  <% if current_user != nil %>
                   <%= link_to 'Ajouter au panier', add_item_from_index_path(img.id), :method => "post", class:"small p-2 btn-s btn-success" %>
+                  <% end %>
                 </div>
                 <div class="card-footer">
                   <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>

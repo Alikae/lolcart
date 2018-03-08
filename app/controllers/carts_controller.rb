@@ -5,7 +5,7 @@ class CartsController < ApplicationController
   def add_item
     @item = Item.find(params[:id])
     if @cart.items.include?(@item)
-      redirect_to items_path(@item), :flash => { :alert => "ˁ˚ᴥ˚ˀ wtf, ton chaton est déjà dans le panier ! ˁ˚ᴥ˚ˀ" }
+      redirect_to items_path(@item), :flash => { :danger => "ˁ˚ᴥ˚ˀ wtf, ton chaton est déjà dans le panier ! ˁ˚ᴥ˚ˀ" }
     else
       @user = @cart.user
       @cart.items << @item
@@ -31,7 +31,11 @@ class CartsController < ApplicationController
   private
 
   def set_cart
-    @cart = current_user.cart
+    if current_user != nil
+      @cart = current_user.cart
+    else
+      redirect_to new_user_session_path
+    end
   end
 
   def cart_params

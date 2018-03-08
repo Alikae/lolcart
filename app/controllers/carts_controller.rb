@@ -29,7 +29,11 @@ class CartsController < ApplicationController
   private
 
   def set_cart
-    @cart = current_user.cart
+    if current_user != nil
+      @cart = current_user.cart
+    else
+      redirect_to new_user_session_path
+    end
   end
 
   def cart_params

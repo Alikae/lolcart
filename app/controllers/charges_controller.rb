@@ -16,9 +16,8 @@ before_action   :set_description,  :authenticate_user!
     charge  =  StripeTool.create_charge(customer_id: customer.id,
     amount: @amount,
     description: @description)
-byebug
     if charge["paid"] == true
-     
+       #set order_status to paid
     end
     
     rescue  Stripe::CardError  => e
